@@ -1,0 +1,27 @@
+{
+  "name": "browsers-can-do-that",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+      "start": "web-dev-server --node-resolve --open --watch --app-index index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Matsuuu/browsers-can-do-that.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Matsuuu/browsers-can-do-that/issues"
+  },
+  "homepage": "https://github.com/Matsuuu/browsers-can-do-that#readme",
+  "dependencies": {
+    "lit": "^2.7.5",
+    "suunta": "^1.0.2"
+  },
+  "devDependencies": {
+    "@web/dev-server": "^0.2.3"
+  }
+}
