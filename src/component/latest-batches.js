@@ -27,7 +27,19 @@ export class LatestBatches extends LitElement {
     }
 
     async fetchLatestBatches() {
-        const batchesRequest = await fetch(BATCHES_API, {
+        const recipeIncludes = [
+            "recipe._id",
+            "recipe.name",
+            "recipe.abv",
+            "recipe.ibu",
+            "recipe.hops",
+            "recipe.og",
+            "recipe.fg",
+            "recipe.style",
+        ];
+
+        const includes = "?include=" + JSON.stringify(recipeIncludes).replaceAll("\"", "");
+        const batchesRequest = await fetch(BATCHES_API + includes, {
             headers: {
                 "Authorization": "Basic " + this.getApiKey()
             }
@@ -36,6 +48,12 @@ export class LatestBatches extends LitElement {
         console.log(batchesRequest);
         if (batchesRequest.ok) {
             this.batches = await batchesRequest.json();
+
+            /*fetch("https://api.brewfather.app/v2/recipes/" + this.batches[0].recipe._id, {
+                headers: {
+                    "Authorization": "Basic " + this.getApiKey()
+                }
+            });*/
         }
     }
 

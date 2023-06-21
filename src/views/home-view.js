@@ -7,7 +7,7 @@ export const HomeView = () => {
         <a href="/foo">Foo</a>
         <latest-batches
             user-id="6PoxdmkWbogHQfBo8g3gz1jJ6Q23"
-            api-key="sjeyBb5Ija4ujA51BEWj7vYX7D96viAbt4FtHHrAs24r9S7qmkvwxmsAWPP5JBlv"
+            api-key="yAw5a7Nz1HvamRSPTtDeUoAXkAHezdwkFx1UHypRC6TlcwRJ8dLPuCspLLazhLw5"
         ></latest-batches>
     `;
 }

@@ -11,5 +11,8 @@ export interface Batch {
 }
 
 export interface Recipe {
+    _id: string;
     name: string;
+    abv: number;
+    ibu: number;
 }
