@@ -13,9 +13,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Matsuuu/browsers-can-do-that/issues"
-  },
   "homepage": "https://github.com/Matsuuu/browsers-can-do-that#readme",
   "dependencies": {
     "lit": "^2.7.5",
