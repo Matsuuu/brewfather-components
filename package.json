@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-      "start": "web-dev-server --node-resolve --open --watch --app-index index.html"
+    "start": "web-dev-server --node-resolve --open --watch --app-index index.html"
   },
   "repository": {
     "type": "git",
@@ -16,9 +16,11 @@
   "homepage": "https://github.com/Matsuuu/browsers-can-do-that#readme",
   "dependencies": {
     "lit": "^2.7.5",
+    "marked": "^5.1.0",
     "suunta": "^1.0.2"
   },
   "devDependencies": {
+    "@types/marked": "^5.0.0",
     "@web/dev-server": "^0.2.3"
   }
 }
