@@ -64,4 +64,19 @@ export class Recipe {
     get equipment() {
         return this.recipeJson.equipment.name;
     }
+
+    get fermentables() {
+        return this.recipeJson.fermentables;
+    }
+
+    get fermentableStringsArray() {
+        return this.fermentables.map(ferm => `${ferm.name} | ${parseFermentableAmountAndUnit(ferm)} | ${ferm.percentage}%`);
+    }
+}
+
+function parseFermentableAmountAndUnit(fermentable) {
+    const measurement = fermentable.amount > 1 ? "kg" : "g";
+    return (measurement == "g"
+    ? fermentable.amount * 1000
+    : fermentable.amount) + " " + measurement
 }
