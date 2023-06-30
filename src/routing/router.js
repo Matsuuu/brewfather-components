@@ -28,7 +28,8 @@ const routes = [
  * @type { import("suunta").SuuntaInitOptions }
  * */
 const options = {
-    routes
+    routes,
+    base: "/brewfather-components"
 }
 
 export const router = new Suunta(options);
