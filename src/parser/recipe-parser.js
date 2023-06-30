@@ -20,15 +20,15 @@ export class Recipe {
     }
 
     get abv() {
-        return this.recipeJson.abv + "%";
+        return this.recipeJson.abv.toFixed(1) + "%";
     }
 
     get og() {
-        return this.recipeJson.og;
+        return this.recipeJson.og.toFixed(3);
     }
 
     get fg() {
-        return this.recipeJson.fg;
+        return this.recipeJson.fg.toFixed(3);
     }
 
     get ibu() {
@@ -115,6 +115,10 @@ export class Recipe {
 
     get fermentationStepsStringArray() {
         return this.fermentation.steps.map(step => `${step.stepTime} päivää @ ${step.stepTemp}°C`);
+    }
+
+    get notes() {
+        return this.recipeJson.notes;
     }
 
     toString() {
