@@ -89,6 +89,34 @@ export class Recipe {
         return this.hops.map(hop => `| ${hop.name} | ${hop.amount} g | ${parseHopUse(hop)} | ${hop.alpha} | ${hop.ibu} |`);
     }
 
+    get yeasts() {
+        return this.recipeJson.yeasts;
+    }
+
+    get yeastsStringArray() {
+        return this.yeasts.map(yeast => `| ${yeast.laboratory} | ${yeast.productId} | ${yeast.amount} ${yeast.unit} |`);
+    }
+
+    get mash() {
+        return this.recipeJson.mash;
+    }
+
+    get mashStepsStringArray() {
+        return this.mash.steps.map(step => `${step.stepTime} min @ ${step.stepTemp}°C`);
+    }
+
+    get boil() {
+        return this.recipeJson.boilTime;
+    }
+
+    get fermentation() {
+        return this.recipeJson.fermentation;
+    }
+
+    get fermentationStepsStringArray() {
+        return this.fermentation.steps.map(step => `${step.stepTime} päivää @ ${step.stepTemp}°C`);
+    }
+
     toString() {
         return `
 # ${this.name}
@@ -96,7 +124,7 @@ export class Recipe {
 
 **Panimo:** ${this.brewery}
 
-${this.teaser}
+${this.teaser ?? ''}
 
 **Palkinnot/Maininnat:** 
 
@@ -139,6 +167,32 @@ ${this.fermentableStringsArray.join("\n")}
 | Humala | Määrä | Ajoitus | Alfa-hapot | IBU |
 |---|---|---|---|---|
 ${this.hopsStringArray.join("\n")}
+
+**Hiivat**
+
+| Valmistaja | Lajike | Määrä |
+|---|----|---|
+${this.yeastsStringArray.join("\n")}
+
+**Mäskäys**
+${this.mashStepsStringArray.join("\n")}
+
+**Keitto**
+${this.boil} min
+
+**Extrat**
+
+**TODO: Extrat**
+
+**Käyminen**
+
+${this.fermentationStepsStringArray.join("\n")}
+
+
+**TODO: Kuva oluesta, yms.**
+
+**TODO: Linkki reseptiin**
+
         `;
     }
 }
@@ -151,7 +205,6 @@ function parseFermentableAmountAndUnit(fermentable) {
 }
 
 function parseHopUse(hop) {
-    console.log("HOp use ", hop.use);
     if (hop.use === "First Wort") {
         return ``;
     }
